@@ -1,0 +1,43 @@
+
+<label><span>Select a genre: </span></label>
+
+<!-- this drop down doesnt do anything yet-->
+<form>
+  <select>
+    <option value="Science Fiction">Science Fiction</option>
+    <option value="Action Adventure">Action Adventure</option>
+    <option value="Mystory">Mystory</option>
+    <option value="Horror">Horror</option>
+    <option value="Thriller & Suspense">Thriller & Suspense</option>
+    <option value="Romance">Romance</option>
+    <option value="Graphic Novel">Graphic Novel</option>
+    <option value="Bigraphy">Bigraphy</option>
+    <option value="Art & Photography">Art & Photography</option>
+    <option value="Self-Help">Self-Help</option>
+    <option value="History">History</option>
+    <option value="Travel">Travel</option>
+    <option value="Science & Technology">Science & Technology</option>
+  </select>
+</form><br><br><br>
+
+<!-- text not updating in text box -->
+<div>
+    <form>
+        <label for="name">ID: </label>
+        <input id="name" [(ngModel)]="books.id" placeholder="Book ID"><br>
+
+        <label for="name">Book name: </label>
+        <input type="text" [(ngModel)]="books.name" placeholder="Book Name"><br>
+
+        <label for="name">Book Description: </label>
+        <input id="name" [(ngModel)]="books.description" placeholder="Book Description"><br>
+
+        <button (click)="updateBook()">Update</button>
+        <button (click)="deleteBook()">Delete</button>
+    </form>
+</div>
+
+<h2>{{books.name}}</h2>
+<div><span>id: </span>{{books.id}}</div>
+<div><span>name: </span>{{books.name}}</div>
+<div><span>description: </span>{{books.description}}</div>
