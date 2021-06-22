@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../books'
 import { BOOKS } from '../catalog'
-import { BookService } from '../book.service';
 
 import { BookService } from '../book.service';
 
@@ -13,21 +12,23 @@ import { BookService } from '../book.service';
 })
 export class BookListComponent implements OnInit {
 
-  books: Book[] = [];
+  books = BOOKS;
   selectedBook?: Book;
   bookService: any;
 
-  constructor(private bookService: BookService) { }
+  constructor() { }
 
+<<<<<<< HEAD
   //--service call that gets the books-----------------------------
   getBooks(): void {
     this.bookService.getBooks()
         .subscribe(books => this.books = books);
   }
+=======
+>>>>>>> parent of 21d5f9e (Merge pull request #1 from Jakobie97/addService)
   ngOnInit(): void {
-    this.getBooks();
   }
-//------------ Action for display-----------------------------------
+
   onSelect(book: Book): void {
     this.selectedBook = book;
   }
