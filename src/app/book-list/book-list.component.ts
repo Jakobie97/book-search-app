@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../books'
 import { BOOKS } from '../catalog'
+import { BookService } from '../book.service';
 
 
 @Component({
@@ -10,14 +11,20 @@ import { BOOKS } from '../catalog'
 })
 export class BookListComponent implements OnInit {
 
-  books = BOOKS;
+  books: Book[] = [];
   selectedBook?: Book;
 
-  constructor() { }
+  constructor(private bookService: BookService) { }
 
-  ngOnInit(): void {
+  //--service call that gets the books-----------------------------
+  getBooks(): void {
+    this.bookService.getBooks()
+        .subscribe(books => this.books = books);
   }
-
+  ngOnInit(): void {
+    this.getBooks();
+  }
+//------------ Action for display-----------------------------------
   onSelect(book: Book): void {
     this.selectedBook = book;
   }
