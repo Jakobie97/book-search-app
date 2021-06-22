@@ -2,7 +2,7 @@ import { Book } from './books';
 
 export const BOOKS: Book[] = [
   { id: 1, name: 'Ready Player One ', description: 'A dystopia in 2045, on the search for an Easter egg in a worldwide virtual reality game' },
-  { id: 2, name: 'book2', description: 'something'  },
+  { id: 2, name: 'Harry Potter ', description: 'youre a wizard harry'  },
   { id: 3, name: 'book3', description: 'something'  },
   { id: 4, name: 'book4', description: 'something'  },
   { id: 5, name: 'book5', description: 'something'  },

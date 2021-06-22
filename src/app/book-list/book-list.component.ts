@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../books'
 import { BOOKS } from '../catalog'
 
+import { BookService } from '../book.service';
+
 
 @Component({
   selector: 'app-book-list',
@@ -12,6 +14,7 @@ export class BookListComponent implements OnInit {
 
   books = BOOKS;
   selectedBook?: Book;
+  bookService: any;
 
   constructor() { }
 
@@ -21,11 +24,21 @@ export class BookListComponent implements OnInit {
   onSelect(book: Book): void {
     this.selectedBook = book;
   }
-    addButtonClicked = false;
-  addNew() {
-    this.addButtonClicked = true;
-  }
+  
+  addButtonClicked = false;
+  
 
+  addNew(): void {
+    this.addButtonClicked = true;
+    /*
+    name = name.trim();
+    if (!name) { return; }
+    this.bookService.addBook({ name } as Book)
+      .subscribe((book: Book) => {
+        this.books.push(book);
+      });*/
+      
+  }
   //placeholder ---------------------------------------------------
   updateBook()
   {
