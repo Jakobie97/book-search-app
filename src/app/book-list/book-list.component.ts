@@ -3,7 +3,7 @@ import { Book } from '../books'
 import { BOOKS } from '../catalog'
 import { BookService } from '../book.service';
 
-
+import { BookService } from '../book.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class BookListComponent implements OnInit {
 
   books: Book[] = [];
   selectedBook?: Book;
-  //bookService: any;
+  bookService: any;
 
   constructor(private bookService: BookService) { }
 
