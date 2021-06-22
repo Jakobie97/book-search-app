@@ -22,16 +22,34 @@
 
 <div class="left-elements">
   <h2>My Books</h2>
+  <!----------- Lists the books -------------->
   <ul class="books">
     <li *ngFor="let book of books"
       [class.selected]="book === selectedBook"
       (click)="onSelect(book)">
       <span class="badge">{{book.id}}</span> {{book.name}}
     </li>
-    <button>+ Add New Books</button> <!-- Make this button do something -->
+
+    <!-- Adds the text feilds for new book -->
+    <div  *ngIf="addButtonClicked">
+
+      <label for="book-id"></label>
+      <input placeholder="ID"><br>
+        
+      <label for="book-name"></label>
+      <input placeholder="name"><br>
+
+      <label for="book-description"></label>
+      <input size="40px" placeholder="Description"><br>
+    
+    </div>
+
+    <button (click)=addNew()>+ Add New Books</button> <!-- Make this button do something -->
+
+
   </ul>
 </div>
-
+<!-- When Agent clicks on the book list desplay right info -->
 <div *ngIf="selectedBook">
 
 

@@ -10,17 +10,6 @@ import { BOOKS } from '../catalog'
 })
 export class BookListComponent implements OnInit {
 
-  
-  //somehow get the catalog array to replace this 
-
-
-  /* previous version -----------------------------------------------------------------------------------------
-  books : Book = {
-    id: 1,
-    name: 'Ready Player One',
-    description: 'A dystopia in 2045, on the search for an Easter egg in a worldwide virtual reality game.'
-  }-------------------------------------------------------------------------------------------------------- */
-
   books = BOOKS;
   selectedBook?: Book;
 
@@ -32,7 +21,11 @@ export class BookListComponent implements OnInit {
   onSelect(book: Book): void {
     this.selectedBook = book;
   }
-  
+    addButtonClicked = false;
+  addNew() {
+    this.addButtonClicked = true;
+  }
+
   //placeholder ---------------------------------------------------
   updateBook()
   {
