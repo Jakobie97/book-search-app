@@ -32,19 +32,16 @@
 
     <!-- Adds the text feilds for new book -->
     <div  *ngIf="addButtonClicked">
-
-      <label for="book-id"></label>
-      <input placeholder="ID"><br>
-        
+   
       <label for="book-name"></label>
-      <input placeholder="name"><br>
+      <input id="new-book" #bookName placeholder="name"><br>
 
       <label for="book-description"></label>
       <input size="40px" placeholder="Description"><br>
     
     </div>
 
-    <button (click)=addNew()>+ Add New Books</button> <!-- Make this button do something -->
+    <button (click)="addNew()">+ Add New Books</button> <!-- Make this button do something -->
 
 
   </ul>
