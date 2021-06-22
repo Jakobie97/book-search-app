@@ -20,25 +20,35 @@
   </select>
 </form><br><br><br>
 
-<!-- text not updating in text box -->
-<!--git comment :)-->
-<div>
-    <form>
-        <label for="name">ID: </label>
-        <input id="name" [(ngModel)]="books.id" placeholder="Book ID"><br>
-
-        <label for="name">Book name: </label>
-        <input type="text" [(ngModel)]="books.name" placeholder="Book Name"><br>
-
-        <label for="name">Book Description: </label>
-        <input id="name" [(ngModel)]="books.description" placeholder="Book Description"><br>
-
-        <button (click)="updateBook()">Update</button>
-        <button (click)="deleteBook()">Delete</button>
-    </form>
+<div class="left-elements">
+  <h2>My Books</h2>
+  <ul class="books">
+    <li *ngFor="let book of books"
+      [class.selected]="book === selectedBook"
+      (click)="onSelect(book)">
+      <span class="badge">{{book.id}}</span> {{book.name}}
+    </li>
+    <button>+ Add New Books</button> <!-- Make this button do something -->
+  </ul>
 </div>
 
-<h2>{{books.name}}</h2>
-<div><span>id: </span>{{books.id}}</div>
-<div><span>name: </span>{{books.name}}</div>
-<div><span>description: </span>{{books.description}}</div>
+<div *ngIf="selectedBook">
+
+
+    <h2>{{selectedBook.name | uppercase}}</h2>
+    <div><span>id: </span>{{selectedBook.id}}</div>
+
+    <div>
+      <label for="book-name">Book name: </label><br>
+      <input id="book-name" [(ngModel)]="selectedBook.name" placeholder="name"><br>
+
+      <label for="book-description">Book Description: </label><br>
+      <input id="book-description" size="70px" [(ngModel)]="selectedBook.description" placeholder="description"><br>
+      <button (click)="updateBook()">Update</button>
+      <button (click)="deleteBook()">Delete</button> <!-- Make these buttons do something -->
+    </div>
+
+</div>
+
+
+
