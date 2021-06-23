@@ -18,26 +18,27 @@ export class BookListComponent implements OnInit {
 
   constructor() { }
 
-<<<<<<< HEAD
+
   //--service call that gets the books-----------------------------
   getBooks(): void {
     this.bookService.getBooks()
         .subscribe(books => this.books = books);
   }
-=======
->>>>>>> parent of 21d5f9e (Merge pull request #1 from Jakobie97/addService)
+
   ngOnInit(): void {
   }
 
   onSelect(book: Book): void {
     this.selectedBook = book;
-  }
-  
-  addButtonClicked = false;
-  
 
-  addNew(): void {
-    this.addButtonClicked = true;
+    this.addButtonClicked = false;
+  }
+
+    addButtonClicked = false;
+  addNew() {
+
+  addButtonClicked = false;
+
     /*
     name = name.trim();
     if (!name) { return; }

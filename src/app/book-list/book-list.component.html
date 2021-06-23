@@ -23,6 +23,7 @@
 <div class="left-elements">
   <h2>My Books</h2>
   <!----------- Lists the books -------------->
+  <!--git somehow its fixed-->
   <ul class="books">
     <li *ngFor="let book of books"
       [class.selected]="book === selectedBook"
@@ -31,38 +32,36 @@
     </li>
 
     <!-- Adds the text feilds for new book -->
+
+    
+
     <div  *ngIf="addButtonClicked">
 
       <label for="book-id"></label>
       <input placeholder="ID"><br>
-<<<<<<< HEAD
+
 
       <label for="new-book">Book name: </label>
       <input id="new-book" #bookName /><br>
-=======
+
         
       <label for="book-name"></label>
       <input placeholder="name"><br>
->>>>>>> parent of 21d5f9e (Merge pull request #1 from Jakobie97/addService)
+
 
       <label for="book-description"></label>
       <input size="40px" placeholder="Description"><br>
 
     </div>
 
-<<<<<<< HEAD
     <button (click)="addNew()">+ Add New Books</button>
     <!-- Make this button do something -->
-=======
-    <button (click)=addNew()>+ Add New Books</button> <!-- Make this button do something -->
->>>>>>> parent of 21d5f9e (Merge pull request #1 from Jakobie97/addService)
 
 
   </ul>
 </div>
 <!-- When Agent clicks on the book list desplay right info -->
-<div *ngIf="selectedBook">
-
+<div *ngIf="selectedBook; else newBook">
 
     <h2>{{selectedBook.name | uppercase}}</h2>
     <div><span>id: </span>{{selectedBook.id}}</div>
@@ -72,9 +71,29 @@
       <input id="book-name" [(ngModel)]="selectedBook.name" placeholder="name"><br>
 
       <label for="book-description">Book Description: </label><br>
-      <input id="book-description" size="70px" [(ngModel)]="selectedBook.description" placeholder="description"><br>
+      <input id="book-description" size="50px" [(ngModel)]="selectedBook.description" placeholder="description"><br>
       <button (click)="updateBook()">Update</button>
       <button (click)="deleteBook()">Delete</button> <!-- Make these buttons do something -->
     </div>
 
 </div>
+
+
+<ng-template #newBook>
+
+</ng-template>
+
+<div *ngIf="addButtonClicked">
+
+
+
+    <label for="Newbook-name">Book name: </label><br>
+    <input id="Newbook-name"  placeholder="name"><br>
+  
+    <label for="book-description">Book Description: </label><br>
+    <input id="book-description" size="50px"  placeholder="description"><br>
+    <button (click)="updateBook()">Update</button>
+    <button (click)="deleteBook()">Delete</button>
+
+</div>
+
