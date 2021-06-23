@@ -27,7 +27,10 @@ export class BookListComponent implements OnInit {
 //------------ Action for display-----------------------------------
   onSelect(book: Book): void {
     this.selectedBook = book;
+
+    this.addButtonClicked = false;
   }
+
     addButtonClicked = false;
   addNew() {
     this.addButtonClicked = true;
