@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../books'
 import { BOOKS } from '../catalog'
+
 import { BookService } from '../book.service';
 
 
@@ -11,20 +12,22 @@ import { BookService } from '../book.service';
 })
 export class BookListComponent implements OnInit {
 
-  books: Book[] = [];
+  books = BOOKS;
   selectedBook?: Book;
+  bookService: any;
 
-  constructor(private bookService: BookService) { }
+  constructor() { }
+
 
   //--service call that gets the books-----------------------------
   getBooks(): void {
     this.bookService.getBooks()
-    .subscribe(books => this.books = books);
+        .subscribe(books => this.books = books);
   }
+
   ngOnInit(): void {
-    this.getBooks();
   }
-//------------ Action for display-----------------------------------
+
   onSelect(book: Book): void {
     this.selectedBook = book;
 
@@ -33,9 +36,18 @@ export class BookListComponent implements OnInit {
 
     addButtonClicked = false;
   addNew() {
-    this.addButtonClicked = true;
-  }
 
+  addButtonClicked = false;
+
+    /*
+    name = name.trim();
+    if (!name) { return; }
+    this.bookService.addBook({ name } as Book)
+      .subscribe((book: Book) => {
+        this.books.push(book);
+      });*/
+      
+  }
   //placeholder ---------------------------------------------------
   updateBook()
   {
